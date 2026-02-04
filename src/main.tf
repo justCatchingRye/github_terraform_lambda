@@ -1,3 +1,16 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"   # or your preferred version
+    }
+  }
+}
+
+provider "aws" {
+  region = "eu-west-2"   # change to your actual region
+  # access_key and secret_key are pulled from env vars (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY)
+}
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect = "Allow"
